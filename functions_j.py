@@ -96,7 +96,7 @@ def username_taken(x, y):
 
 def sign_user(user_list):
     while True:
-        if two_option('Sign in', 'Sign up'):
+        if two_option('Log in', 'Sign up'):
             x = input('Username: ').strip()
             y = input('Password: ').strip()
             for z in user_list:
@@ -114,6 +114,7 @@ def sign_user(user_list):
             print('\n')
 
 
+# Takes in a list of string and ask the user an integer for the input
 def module_chooser(y):
     while True:
         try:
