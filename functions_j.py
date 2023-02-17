@@ -112,3 +112,20 @@ def sign_user(user_list):
                 user_list.append(User(x, y))
                 print('Success')
             print('\n')
+
+
+def module_chooser(y):
+    while True:
+        try:
+            prompt = ''
+            i = 1
+            for z in y:
+                prompt += z + ' : ' + str(i)
+                if i == len(y):
+                    prompt += '   |   '
+                    return int(input(prompt))
+                i += 1
+                prompt += ' | '
+
+        except ValueError:
+            print('Invalid Input')
