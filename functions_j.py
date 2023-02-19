@@ -114,6 +114,26 @@ def sign_user(user_list):
             print('\n')
 
 
+def sign_user_2(i, user_list, username, password):
+    if i:
+        for z in user_list:
+            if z.get_username() == username:
+                if z.get_password() == password:
+                    print('Log in')
+                    return 'Valid'
+        print('Invalid Username or Password')
+        return 'Invalid'
+    elif not i:
+        if username_taken(username, user_list):
+            if password != '':
+                user_list.append(User(username, password))
+                print('Sign Up')
+                return 'Valid'
+            else:
+                print('Invalid Username or Password')
+        return 'Invalid'
+
+
 # Takes in a list of string and ask the user an integer for the input
 def module_chooser(y):
     while True:
@@ -130,3 +150,4 @@ def module_chooser(y):
 
         except ValueError:
             print('Invalid Input')
+            print('\n')
