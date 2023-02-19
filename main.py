@@ -69,7 +69,7 @@ login_button = tkinter.Button(user_button_frame, text='Log in', command=b.login)
 login_button.grid(row=0, column=0)
 login_button.grid_configure(padx=10)
 
-signin_button = tkinter.Button(user_button_frame, text='Sign in', command=b.signup)
+signin_button = tkinter.Button(user_button_frame, text='Sign up', command=b.signup)
 signin_button.grid(row=0, column=1)
 signin_button.grid_configure(padx=10)
 
