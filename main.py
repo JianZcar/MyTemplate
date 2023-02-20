@@ -1,5 +1,6 @@
 import tkinter
 import functions_j
+import threading
 
 users = []
 user_data = functions_j.UserData('user_data', users)
@@ -8,9 +9,18 @@ functions_j.initialize(user_data)
 
 
 def display_txt(x):
+    def hide():
+        output_box.grid_forget()
     output_box = tkinter.Label(frame, text=x, width=25)
     output_box.grid(row=3, column=0)
     output_box.grid_configure()
+    timer = threading.Timer(1.0, hide)
+    timer.start()
+
+
+def hide_login_menu():
+    for widgets in frame.winfo_children():
+        widgets.grid_forget()
 
 
 class GetData:
@@ -27,6 +37,7 @@ class GetData:
         if functions_j.sign_user_2(True, self.list.get_list(), self.username, self.password) == 'Invalid':
             display_txt('Invalid Username or Password')
         else:
+            hide_login_menu()
             display_txt('Log in Successful')
 
     def signup(self):
