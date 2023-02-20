@@ -24,6 +24,21 @@ class User:
         return self.password
 
 
+class UserData:
+    def __init__(self, name, list_users):
+        self.name = name
+        self.list_users = list_users
+
+    def get_name(self):
+        return self.name
+
+    def get_list(self):
+        return self.list_users
+
+    def update_list(self, x):
+        self.list_users = x
+
+
 def two_option(x, y):
     while True:
         try:
@@ -61,17 +76,15 @@ def y_or_n(x):
 
 # For Reading and Writing a .pkl file
 def load(x):
-    x.strip()
-    x = x + '.pkl'
-    file = open(x, 'rb')
+    y = x.get_name() + '.pkl'
+    file = open(y, 'rb')
     return pickle.load(file)
 
 
 def write(x):
-    x.strip()
-    x = x + '.pkl'
-    file = open(x, 'wb')
-    pickle.dump(x, file)
+    y = x.get_name() + '.pkl'
+    file = open(y, 'wb')
+    pickle.dump(x.get_list(), file)
     file.close()
 
 
@@ -115,6 +128,7 @@ def sign_user(user_list):
 
 
 def sign_user_2(i, user_list, username, password):
+    username = username.lower()
     if i:
         for z in user_list:
             if z.get_username() == username:

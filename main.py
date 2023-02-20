@@ -2,6 +2,9 @@ import tkinter
 import functions_j
 
 users = []
+user_data = functions_j.UserData('user_data', users)
+
+functions_j.initialize(user_data)
 
 
 def display_txt(x):
@@ -15,12 +18,13 @@ class GetData:
         self.username = None
         self.password = None
         self.to_login = None
-        self.list = users
+        self.list = user_data
+        self.list.update_list(functions_j.load(self.list))
 
     def login(self):
         self.username = user_name_entry.get().strip()
         self.password = user_password_entry.get().strip()
-        if functions_j.sign_user_2(True, self.list, self.username, self.password) == 'Invalid':
+        if functions_j.sign_user_2(True, self.list.get_list(), self.username, self.password) == 'Invalid':
             display_txt('Invalid Username or Password')
         else:
             display_txt('Log in Successful')
@@ -28,13 +32,14 @@ class GetData:
     def signup(self):
         self.username = user_name_entry.get()
         self.password = user_password_entry.get()
-        if functions_j.sign_user_2(False, self.list, self.username, self.password) == 'Invalid':
+        if functions_j.sign_user_2(False, self.list.get_list(), self.username, self.password) == 'Invalid':
             if self.username == '' or self.password == '':
                 display_txt('Invalid Username or Password')
             else:
                 display_txt('Username taken')
         else:
             display_txt('Sign up Successful')
+            functions_j.write(self.list)
 
 
 window = tkinter.Tk()
