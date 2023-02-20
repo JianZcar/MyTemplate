@@ -63,7 +63,7 @@ user_login_frame = tkinter.LabelFrame(frame, text='')
 user_login_frame.grid(row=0, column=0)
 user_login_frame.grid_configure(padx=5, pady=10)
 
-user_button_frame = tkinter.LabelFrame(frame)
+user_button_frame = tkinter.LabelFrame(frame, borderwidth=0, highlightthickness=0)
 user_button_frame.grid(row=1, column=0)
 user_login_frame.grid_configure()
 
@@ -83,11 +83,11 @@ b = GetData()
 
 login_button = tkinter.Button(user_button_frame, text='Log in', command=b.login)
 login_button.grid(row=0, column=0)
-login_button.grid_configure(padx=10)
+login_button.grid_configure(padx=10, pady=10)
 
 signin_button = tkinter.Button(user_button_frame, text='Sign up', command=b.signup)
 signin_button.grid(row=0, column=1)
-signin_button.grid_configure(padx=10)
+signin_button.grid_configure(padx=10, pady=10)
 
 
 for widget in user_login_frame.winfo_children():
