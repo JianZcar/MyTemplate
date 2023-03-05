@@ -113,9 +113,8 @@ def sign_user(user_list):
             x = input('Username: ').strip()
             y = input('Password: ').strip()
             for z in user_list:
-                if z.get_username() == x:
-                    if z.get_password() == y:
-                        return
+                if z.get_username() == x and z.get_password() == y:
+                    return
             print('Invalid Username or Password')
             print('\n')
         else:
@@ -131,10 +130,9 @@ def sign_user_2(i, user_list, username, password):
     username = username.lower()
     if i:
         for z in user_list:
-            if z.get_username() == username:
-                if z.get_password() == password:
-                    print('Log in')
-                    return 'Valid'
+            if z.get_username() == username and z.get_password() == password:
+                print('Log in')
+                return 'Valid'
         print('Invalid Username or Password')
         return 'Invalid'
     elif not i:
