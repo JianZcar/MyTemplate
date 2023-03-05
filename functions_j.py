@@ -168,9 +168,21 @@ def module_chooser(y):
 
 
 def dict_input(list_):
-    return {key: input(f'Enter {key} :') for (key) in list_}
+    return {key: input(f'Enter {key} : ') for (key) in list_}
 
 
 if __name__ == '__main__':
+    print('--Input--')
+
     keys = ['Surname', 'First Name', 'Middle Name']
+    # user_info = dict_input(keys)
+    user_info = (lambda list_: {key: input(f'Enter {key} : ') for (key) in list_})(keys)
+    print('\n')
+
+    print('--Output--')
+
+    [print(f'{x[0]} : {x[1]}') for x in user_info.items()]
+    print('\n')
+    print(user_info)
+
     pass
