@@ -183,12 +183,10 @@ if __name__ == '__main__':
     # user_info = dict_input2(dict__)
 
     # I don't Recommend using this. I did this just to exercise my brain LoL hahaha
-    user_info = (
-        lambda a, b, c: {x[0]: (
-            lambda x, y: y(b(x, b))if y == str else c(c, x, y, b))(x[0], x[1])for (x) in a.items()})(
-        dict__, lambda x, self: (lambda i_: i_ if i_ != '' else self(x, self))(input(f'Enter {x} : ').strip()),
-        lambda self, x, y, b: (lambda b_: y(b_) if b_.isdigit() else self(self, x, y, b))(b(x, b)),
-     )
+    user_info = (lambda a, b, c: {x[0]: (
+            lambda x, y: y(b(x, b))if y == str else c(c, x, y, b))(x[0], x[1])for (x) in a.items()}
+    )(dict__, lambda x, s: (lambda i_: i_ if i_ != '' else s(x, s))(input(f'Enter {x} : ').strip()),
+        lambda s, x, y, b: (lambda b_: y(b_) if b_.isdigit() else s(s, x, y, b))(b(x, b)),)
 
     print('\n')
 
