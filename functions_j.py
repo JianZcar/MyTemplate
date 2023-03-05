@@ -165,3 +165,12 @@ def module_chooser(y):
         except ValueError:
             print('Invalid Input')
             print('\n')
+
+
+def dict_input(list_):
+    return {key: input(f'Enter {key} :') for (key) in list_}
+
+
+if __name__ == '__main__':
+    keys = ['Surname', 'First Name', 'Middle Name']
+    pass
