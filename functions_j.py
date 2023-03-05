@@ -181,8 +181,8 @@ if __name__ == '__main__':
     # user_info = dict_input(keys)
     # user_info = (lambda list_: {key: input(f'Enter {key} : ') for (key) in list_})(keys)
     # user_info = dict_input2(dict__)
-    # I don't Recommend using this. I did this just to exercise my brain LoL hahaha
 
+    # I don't Recommend using this. I did this just to exercise my brain LoL hahaha
     user_info = (
         lambda list_, rec_, rec_2: {x[0]: (
             lambda x, y: y(rec_(x, rec_))
