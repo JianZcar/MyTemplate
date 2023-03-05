@@ -185,9 +185,8 @@ if __name__ == '__main__':
     # I don't Recommend using this. I did this just to exercise my brain LoL hahaha
     user_info = (
         lambda list_, rec_, rec_2: {x[0]: (
-            lambda x, y: y(rec_(x, rec_))
-            if y == str else rec_2(rec_2, x, y, rec_))(x[0], x[1]) for (x) in list_.items()}
-    )(
+            lambda x, y: y(rec_(x, rec_))if y == str else rec_2(rec_2, x, y, rec_))(x[0], x[1])
+            for (x) in list_.items()})(
         dict__, lambda x, self: (lambda i_: i_ if i_ != '' else self(x, self))(input(f'Enter {x} : ').strip()),
         lambda self, x, y, rec_: (lambda rec__: y(rec__) if rec__.isdigit() else self(self, x, y, rec_))(rec_(x, rec_)),
      )
