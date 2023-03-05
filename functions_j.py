@@ -169,12 +169,29 @@ def dict_input(list_):
     return {key: input(f'Enter {key} : ') for (key) in list_}
 
 
+def dict_input2(list_):
+    return {x[0]: (lambda x, y: y(input(f'Enter {x} : ')))(x[0], x[1]) for (x) in list_.items()}
+
+
 if __name__ == '__main__':
     print('--Input--')
 
     keys = ['Surname', 'First Name', 'Middle Name']
+    # dict__ = {'Surname': str, 'First Name': str, 'Middle Name': str, 'Age': int}
     # user_info = dict_input(keys)
     user_info = (lambda list_: {key: input(f'Enter {key} : ') for (key) in list_})(keys)
+    # user_info = dict_input2(dict__)
+    # I don't Recommend using this. I did this just to exercise my brain LoL hahaha
+    """
+    user_info = (
+        lambda list_, rec_, rec_2: {x[0]: (
+            lambda x, y: y(rec_(x)) if y == str else rec_2(rec_2, x, y, rec_))(x[0], x[1]) for (x) in list_.items()}
+    )(
+        dict__, lambda x: input(f'Enter {x} : '),
+        lambda self, x, y, rec_: (lambda rec__: y(rec__) if rec__.isdigit() else self(self, x, y, rec_))(rec_(x))
+     )
+    """
+
     print('\n')
 
     print('--Output--')
